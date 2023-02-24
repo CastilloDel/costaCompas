@@ -1,0 +1,4 @@
+node_modules
+src/js/secrets.json
+/meteo_data
+__pycache__

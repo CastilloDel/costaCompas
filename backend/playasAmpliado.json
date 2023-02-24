@@ -1,0 +1,1234 @@
+[
+    {
+        "nombre": "Praia do Raso",
+        "id": "1000933",
+        "coord": [
+            -8.22708,
+            43.42828
+        ]
+    },
+    {
+        "nombre": "Praia do Matadeiro",
+        "id": "1002236",
+        "coord": [
+            -8.47837,
+            43.35242
+        ]
+    },
+    {
+        "nombre": "Praia de O Pedrido (Este)",
+        "id": "1002256",
+        "coord": [
+            -8.21043,
+            43.3271
+        ]
+    },
+    {
+        "nombre": "Praia de O Pedrido (Norte)",
+        "id": "1002257",
+        "coord": [
+            -8.21211,
+            43.32786
+        ]
+    },
+    {
+        "nombre": "Praia San Vicenzo do Mar",
+        "id": "1000500",
+        "coord": [
+            -8.84106,
+            42.66385
+        ]
+    },
+    {
+        "nombre": "Praia do Chazo",
+        "id": "1002202",
+        "coord": [
+            -8.85757,
+            42.60907
+        ]
+    },
+    {
+        "nombre": "Praia do Río",
+        "id": "1001584",
+        "coord": [
+            -8.89922,
+            42.64053
+        ]
+    },
+    {
+        "nombre": "Praia do Perdón",
+        "id": "1002291",
+        "coord": [
+            -8.93306,
+            43.21896
+        ]
+    },
+    {
+        "nombre": "Praia de Mozobordón",
+        "id": "1002208",
+        "coord": [
+            -9.16221,
+            43.12891
+        ]
+    },
+    {
+        "nombre": "Praia de Lago do Norte",
+        "id": "1002344",
+        "coord": [
+            -9.19829,
+            43.13156
+        ]
+    },
+    {
+        "nombre": "Praia do Trece (Oeste)",
+        "id": "1002349",
+        "coord": [
+            -9.15821,
+            43.18309
+        ]
+    },
+    {
+        "nombre": "Praia do Trece (Este)",
+        "id": "1002356",
+        "coord": [
+            -9.15422,
+            43.18414
+        ]
+    },
+    {
+        "nombre": "Praia de Pedra do Sal",
+        "id": "1002186",
+        "coord": [
+            -8.6589,
+            43.30218
+        ]
+    },
+    {
+        "nombre": "Praia do Simprón",
+        "id": "1001546",
+        "coord": [
+            -9.14109,
+            42.79634
+        ]
+    },
+    {
+        "nombre": "Area dos Botes",
+        "id": "1001550",
+        "coord": [
+            -9.12808,
+            42.78233
+        ]
+    },
+    {
+        "nombre": "Praia Pescadoira",
+        "id": "1001015",
+        "coord": [
+            -7.94907,
+            43.731
+        ]
+    },
+    {
+        "nombre": "Praia do Matadoiro",
+        "id": "1002239",
+        "coord": [
+            -8.40371,
+            43.37556
+        ]
+    },
+    {
+        "nombre": "Praia do Portiño",
+        "id": "1002243",
+        "coord": [
+            -8.44625,
+            43.37245
+        ]
+    },
+    {
+        "nombre": "Praia de Adormideiras",
+        "id": "1002245",
+        "coord": [
+            -8.3938,
+            43.38398
+        ]
+    },
+    {
+        "nombre": "Praia do Río Sandeo",
+        "id": "1002281",
+        "coord": [
+            -8.19681,
+            43.42684
+        ]
+    },
+    {
+        "nombre": "Praia Coído",
+        "id": "1002282",
+        "coord": [
+            -8.19263,
+            43.42599
+        ]
+    },
+    {
+        "nombre": "Praia do Porto",
+        "id": "1002294",
+        "coord": [
+            -8.30359,
+            43.55996
+        ]
+    },
+    {
+        "nombre": "Praia de Doniños",
+        "id": "1001270",
+        "coord": [
+            -8.31894,
+            43.49487
+        ]
+    },
+    {
+        "nombre": "Praia do Mar de Fora",
+        "id": "1000720",
+        "coord": [
+            -9.27486,
+            42.90827
+        ]
+    },
+    {
+        "nombre": "Praia do Rostro",
+        "id": "1000729",
+        "coord": [
+            -9.26508,
+            42.9675
+        ]
+    },
+    {
+        "nombre": "Praia dos Cristales",
+        "id": "1001482",
+        "coord": [
+            -9.01083,
+            43.2267
+        ]
+    },
+    {
+        "nombre": "Praia Arnado",
+        "id": "1000804",
+        "coord": [
+            -9.03486,
+            43.20838
+        ]
+    },
+    {
+        "nombre": "Praia dos Rías",
+        "id": "1002391",
+        "coord": [
+            -8.74489,
+            43.29344
+        ]
+    },
+    {
+        "nombre": "Praia de Canido",
+        "id": "1002393",
+        "coord": [
+            -8.817,
+            43.32382
+        ]
+    },
+    {
+        "nombre": "Praia de Ponte do Porco",
+        "id": "1002258",
+        "coord": [
+            -8.20371,
+            43.33868
+        ]
+    },
+    {
+        "nombre": "Praia de Mugardos",
+        "id": "1000955",
+        "coord": [
+            -8.25713,
+            43.46197
+        ]
+    },
+    {
+        "nombre": "Praia do Coído",
+        "id": "1001189",
+        "coord": [
+            -9.00917,
+            42.78452
+        ]
+    },
+    {
+        "nombre": "Area do Medio",
+        "id": "1001190",
+        "coord": [
+            -9.00252,
+            42.78209
+        ]
+    },
+    {
+        "nombre": "Praia de Raimundo",
+        "id": "1002248",
+        "coord": [
+            -8.99622,
+            42.78173
+        ]
+    },
+    {
+        "nombre": "Praia do Castelo",
+        "id": "1002251",
+        "coord": [
+            -9.05495,
+            42.77475
+        ]
+    },
+    {
+        "nombre": "Praia de Coido",
+        "id": "1002253",
+        "coord": [
+            -9.00907,
+            42.78458
+        ]
+    },
+    {
+        "nombre": "Praia Aldosón",
+        "id": "1001557",
+        "coord": [
+            -9.01436,
+            42.7995
+        ]
+    },
+    {
+        "nombre": "Praia de Acoradoiro",
+        "id": "1001515",
+        "coord": [
+            -9.11111,
+            42.75529
+        ]
+    },
+    {
+        "nombre": "Area de Lourido",
+        "id": "1000755",
+        "coord": [
+            -9.22303,
+            43.08753
+        ]
+    },
+    {
+        "nombre": "Praia do Neto",
+        "id": "1002332",
+        "coord": [
+            -9.22236,
+            43.09333
+        ]
+    },
+    {
+        "nombre": "Praia de Espiñeirido",
+        "id": "1002334",
+        "coord": [
+            -9.20857,
+            43.10021
+        ]
+    },
+    {
+        "nombre": "Praia Redondelo de Arriba",
+        "id": "1001241",
+        "coord": [
+            -8.92455,
+            42.78563
+        ]
+    },
+    {
+        "nombre": "Praia do Testal",
+        "id": "1001530",
+        "coord": [
+            -8.91378,
+            42.79128
+        ]
+    },
+    {
+        "nombre": "Praia do Naval",
+        "id": "1002265",
+        "coord": [
+            -8.34652,
+            43.35346
+        ]
+    },
+    {
+        "nombre": "Praia do Bimbieiro",
+        "id": "1002303",
+        "coord": [
+            -7.7943,
+            43.72611
+        ]
+    },
+    {
+        "nombre": "Praia de Ladrido",
+        "id": "1001369",
+        "coord": [
+            -7.83793,
+            43.70549
+        ]
+    },
+    {
+        "nombre": "Praia do Campo",
+        "id": "1001579",
+        "coord": [
+            -8.91041,
+            42.62996
+        ]
+    },
+    {
+        "nombre": "Praia do Conchido",
+        "id": "1001580",
+        "coord": [
+            -8.9066,
+            42.63185
+        ]
+    },
+    {
+        "nombre": "Praia do Caramiñal",
+        "id": "1000543",
+        "coord": [
+            -8.93493,
+            42.60042
+        ]
+    },
+    {
+        "nombre": "Praia do Coído",
+        "id": "1002288",
+        "coord": [
+            -8.22027,
+            43.38571
+        ]
+    },
+    {
+        "nombre": "Praia de Espiñeirido",
+        "id": "1002232",
+        "coord": [
+            -9.0619,
+            42.60308
+        ]
+    },
+    {
+        "nombre": "Praia do Cabalo ou de Boa Grande",
+        "id": "1001246",
+        "coord": [
+            -8.93296,
+            42.77876
+        ]
+    },
+    {
+        "nombre": "Praia do Pozo",
+        "id": "1001249",
+        "coord": [
+            -8.95709,
+            42.74627
+        ]
+    },
+    {
+        "nombre": "Praia do Porrón",
+        "id": "1000487",
+        "coord": [
+            -8.8011,
+            42.6388
+        ]
+    },
+    {
+        "nombre": "Praia do Pozo",
+        "id": "1002211",
+        "coord": [
+            -8.81396,
+            42.66135
+        ]
+    },
+    {
+        "nombre": "Praia Porrón do Salto",
+        "id": "1002161",
+        "coord": [
+            -8.80552,
+            42.64015
+        ]
+    },
+    {
+        "nombre": "Praia do Pazo",
+        "id": "1002163",
+        "coord": [
+            -8.81421,
+            42.66154
+        ]
+    },
+    {
+        "nombre": "Praia do Castro",
+        "id": "1001562",
+        "coord": [
+            -9.00614,
+            42.52835
+        ]
+    },
+    {
+        "nombre": "Praia dos Mosqueiros",
+        "id": "1002216",
+        "coord": [
+            -8.99113,
+            42.53529
+        ]
+    },
+    {
+        "nombre": "Praia do Baluarte",
+        "id": "1002221",
+        "coord": [
+            -8.95819,
+            42.57882
+        ]
+    },
+    {
+        "nombre": "Praia do Couso",
+        "id": "1002224",
+        "coord": [
+            -9.03921,
+            42.51985
+        ]
+    },
+    {
+        "nombre": "Praia do Fontán",
+        "id": "1002225",
+        "coord": [
+            -8.98519,
+            42.54869
+        ]
+    },
+    {
+        "nombre": "Praia dos Bois",
+        "id": "1000350",
+        "coord": [
+            -9.01052,
+            42.48021
+        ]
+    },
+    {
+        "nombre": "Praia do Castelo",
+        "id": "1000353",
+        "coord": [
+            -9.00316,
+            42.47059
+        ]
+    },
+    {
+        "nombre": "Praia do Esteiro ou de Cornas",
+        "id": "1000551",
+        "coord": [
+            -8.95008,
+            42.58519
+        ]
+    },
+    {
+        "nombre": "Praia do Coroso",
+        "id": "1000557",
+        "coord": [
+            -8.98485,
+            42.5672
+        ]
+    },
+    {
+        "nombre": "Praia de Ribeira do Prado",
+        "id": "1000610",
+        "coord": [
+            -9.07653,
+            42.57118
+        ]
+    },
+    {
+        "nombre": "Praia de Espiñeirido",
+        "id": "1000621",
+        "coord": [
+            -9.0645,
+            42.60013
+        ]
+    },
+    {
+        "nombre": "Praia Prados",
+        "id": "1000989",
+        "coord": [
+            -8.13201,
+            43.63396
+        ]
+    },
+    {
+        "nombre": "Praia Figueredo",
+        "id": "1000994",
+        "coord": [
+            -8.10268,
+            43.64515
+        ]
+    },
+    {
+        "nombre": "Praia do Rodo ou de Pantín",
+        "id": "1000997",
+        "coord": [
+            -8.11362,
+            43.63663
+        ]
+    },
+    {
+        "nombre": "Praia de Moledo",
+        "id": "1001346",
+        "coord": [
+            -7.1692,
+            43.5551
+        ]
+    },
+    {
+        "nombre": "Praia Acantilado",
+        "id": "1002416",
+        "coord": [
+            -7.22521,
+            43.56525
+        ]
+    },
+    {
+        "nombre": "Praia do Cabaliño",
+        "id": "1001358",
+        "coord": [
+            -7.3567,
+            43.66648
+        ]
+    },
+    {
+        "nombre": "Praia Perdouro",
+        "id": "1001134",
+        "coord": [
+            -7.35039,
+            43.64935
+        ]
+    },
+    {
+        "nombre": "Praia do Torno ou de San Cibrao",
+        "id": "1001352",
+        "coord": [
+            -7.44073,
+            43.69771
+        ]
+    },
+    {
+        "nombre": "Praia dos Fondás",
+        "id": "1002421",
+        "coord": [
+            -7.25214,
+            43.55602
+        ]
+    },
+    {
+        "nombre": "Praia da Rapadoira",
+        "id": "1001349",
+        "coord": [
+            -7.24851,
+            43.57267
+        ]
+    },
+    {
+        "nombre": "Praia de Sarrido ou de Peizás",
+        "id": "1001977",
+        "coord": [
+            -7.27907,
+            43.58819
+        ]
+    },
+    {
+        "nombre": "Area do Valle",
+        "id": "1001075",
+        "coord": [
+            -7.67394,
+            43.73583
+        ]
+    },
+    {
+        "nombre": "Praia de Fomento ou de Vicedo",
+        "id": "1001329",
+        "coord": [
+            -7.6742,
+            43.73696
+        ]
+    },
+    {
+        "nombre": "Praia dos Bloques",
+        "id": "1001336",
+        "coord": [
+            -7.04391,
+            43.52939
+        ]
+    },
+    {
+        "nombre": "Praia dos Castros ou Marbadas",
+        "id": "1001344",
+        "coord": [
+            -7.13186,
+            43.55627
+        ]
+    },
+    {
+        "nombre": "Praia Cargadoiro",
+        "id": "1002120",
+        "coord": [
+            -7.03684,
+            43.54448
+        ]
+    },
+    {
+        "nombre": "Praia de Sacido",
+        "id": "1001360",
+        "coord": [
+            -7.61319,
+            43.67903
+        ]
+    },
+    {
+        "nombre": "Praia do Burgo ou de San Esteban",
+        "id": "1001924",
+        "coord": [
+            -8.83886,
+            42.11453
+        ]
+    },
+    {
+        "nombre": "Praia do Fraile ou dos Frades",
+        "id": "1001943",
+        "coord": [
+            -8.85211,
+            42.12577
+        ]
+    },
+    {
+        "nombre": "Praia dos Cans",
+        "id": "1001833",
+        "coord": [
+            -8.93388,
+            42.36973
+        ]
+    },
+    {
+        "nombre": "Praia Pescadoira",
+        "id": "1001853",
+        "coord": [
+            -8.779,
+            42.32968
+        ]
+    },
+    {
+        "nombre": "Praia Ancoradoiro",
+        "id": "1000140",
+        "coord": [
+            -8.82648,
+            42.33381
+        ]
+    },
+    {
+        "nombre": "Praia do Curro",
+        "id": "1000185",
+        "coord": [
+            -8.93344,
+            42.37392
+        ]
+    },
+    {
+        "nombre": "Praia Banda do Río",
+        "id": "1001373",
+        "coord": [
+            -8.78979,
+            42.32763
+        ]
+    },
+    {
+        "nombre": "Praia do Reventón",
+        "id": "1001377",
+        "coord": [
+            -8.81794,
+            42.30643
+        ]
+    },
+    {
+        "nombre": "Praia das Dornas",
+        "id": "1002372",
+        "coord": [
+            -8.93156,
+            42.37737
+        ]
+    },
+    {
+        "nombre": "Praia Con de Sido",
+        "id": "1001661",
+        "coord": [
+            -8.82907,
+            42.48753
+        ]
+    },
+    {
+        "nombre": "Praia do Couto",
+        "id": "1001668",
+        "coord": [
+            -8.82161,
+            42.4681
+        ]
+    },
+    {
+        "nombre": "Praia do Medio",
+        "id": "1001978",
+        "coord": [
+            -8.79218,
+            42.24805
+        ]
+    },
+    {
+        "nombre": "Praia dos Picos",
+        "id": "1001383",
+        "coord": [
+            -8.81912,
+            42.27694
+        ]
+    },
+    {
+        "nombre": "Praia dos Fornos",
+        "id": "1001811",
+        "coord": [
+            -8.85037,
+            42.48275
+        ]
+    },
+    {
+        "nombre": "Praia do Bao",
+        "id": "1001682",
+        "coord": [
+            -8.87089,
+            42.45167
+        ]
+    },
+    {
+        "nombre": "Praia do Cavernal",
+        "id": "1001683",
+        "coord": [
+            -8.87326,
+            42.45764
+        ]
+    },
+    {
+        "nombre": "Praia do Hospital",
+        "id": "1001695",
+        "coord": [
+            -8.86613,
+            42.49849
+        ]
+    },
+    {
+        "nombre": "Praia Con do Corvo",
+        "id": "1001715",
+        "coord": [
+            -8.93944,
+            42.46209
+        ]
+    },
+    {
+        "nombre": "Area de Reboredo",
+        "id": "1000376",
+        "coord": [
+            -8.89598,
+            42.48034
+        ]
+    },
+    {
+        "nombre": "Praia do Grove",
+        "id": "1002383",
+        "coord": [
+            -8.86011,
+            42.49499
+        ]
+    },
+    {
+        "nombre": "Praia de Fedorento",
+        "id": "1002077",
+        "coord": [
+            -8.87618,
+            41.90814
+        ]
+    },
+    {
+        "nombre": "Praia do Carreiro",
+        "id": "1002079",
+        "coord": [
+            -8.87641,
+            41.89783
+        ]
+    },
+    {
+        "nombre": "Praia do Muíño",
+        "id": "1002090",
+        "coord": [
+            -8.87138,
+            41.87174
+        ]
+    },
+    {
+        "nombre": "Praia do Arroás",
+        "id": "1002155",
+        "coord": [
+            -8.87491,
+            42.57251
+        ]
+    },
+    {
+        "nombre": "Praia do Lagartiño",
+        "id": "1001889",
+        "coord": [
+            -8.86496,
+            42.5661
+        ]
+    },
+    {
+        "nombre": "Praia do Naval",
+        "id": "1001617",
+        "coord": [
+            -8.87431,
+            42.56649
+        ]
+    },
+    {
+        "nombre": "Praia do Con Cerrado",
+        "id": "1001627",
+        "coord": [
+            -8.86748,
+            42.53687
+        ]
+    },
+    {
+        "nombre": "Praia do Vao",
+        "id": "1000429",
+        "coord": [
+            -8.85979,
+            42.5459
+        ]
+    },
+    {
+        "nombre": "Praia Ribeira do Chazo",
+        "id": "1000430",
+        "coord": [
+            -8.8734,
+            42.56349
+        ]
+    },
+    {
+        "nombre": "Praia do Faro ou do Naso",
+        "id": "1000435",
+        "coord": [
+            -8.88037,
+            42.57254
+        ]
+    },
+    {
+        "nombre": "Praia dos Placeres",
+        "id": "1002320",
+        "coord": [
+            -8.6846,
+            42.40571
+        ]
+    },
+    {
+        "nombre": "Praia Santo do Mar",
+        "id": "1000105",
+        "coord": [
+            -8.75174,
+            42.34832
+        ]
+    },
+    {
+        "nombre": "Praia dos Seixiños",
+        "id": "1001672",
+        "coord": [
+            -8.82057,
+            42.45817
+        ]
+    },
+    {
+        "nombre": "Praia do Niño Corvo",
+        "id": "1001990",
+        "coord": [
+            -8.75357,
+            42.26512
+        ]
+    },
+    {
+        "nombre": "Praia do Con",
+        "id": "1001995",
+        "coord": [
+            -8.74104,
+            42.27088
+        ]
+    },
+    {
+        "nombre": "Praia do Puntillón",
+        "id": "1001997",
+        "coord": [
+            -8.7323,
+            42.28658
+        ]
+    },
+    {
+        "nombre": "Praia de Domaio",
+        "id": "1002005",
+        "coord": [
+            -8.67944,
+            42.28669
+        ]
+    },
+    {
+        "nombre": "Praia do Cocho",
+        "id": "1002325",
+        "coord": [
+            -8.71262,
+            42.27924
+        ]
+    },
+    {
+        "nombre": "Praia do Río da Ribeira",
+        "id": "1002326",
+        "coord": [
+            -8.74637,
+            42.26957
+        ]
+    },
+    {
+        "nombre": "Praia Madorra ou do Castro",
+        "id": "1000272",
+        "coord": [
+            -8.82618,
+            42.14596
+        ]
+    },
+    {
+        "nombre": "Praia de Canido",
+        "id": "1001935",
+        "coord": [
+            -8.81897,
+            42.1353
+        ]
+    },
+    {
+        "nombre": "Praia de Lourido",
+        "id": "1001937",
+        "coord": [
+            -8.8211,
+            42.12707
+        ]
+    },
+    {
+        "nombre": "Praia de Lourido",
+        "id": "1001781",
+        "coord": [
+            -8.67664,
+            42.42078
+        ]
+    },
+    {
+        "nombre": "Praia do Caeiro",
+        "id": "1002367",
+        "coord": [
+            -8.73337,
+            42.41534
+        ]
+    },
+    {
+        "nombre": "Praia dos Praceres",
+        "id": "1001799",
+        "coord": [
+            -8.68463,
+            42.40567
+        ]
+    },
+    {
+        "nombre": "Praia do Cabo",
+        "id": "1002025",
+        "coord": [
+            -8.61912,
+            42.31214
+        ]
+    },
+    {
+        "nombre": "Praia do Revo",
+        "id": "1002384",
+        "coord": [
+            -8.86164,
+            42.44953
+        ]
+    },
+    {
+        "nombre": "Praia dos Barcos",
+        "id": "1000037",
+        "coord": [
+            -8.8064,
+            42.39946
+        ]
+    },
+    {
+        "nombre": "Praia dos Mortos",
+        "id": "1000043",
+        "coord": [
+            -8.77739,
+            42.39053
+        ]
+    },
+    {
+        "nombre": "Praia do Pomadeiro",
+        "id": "1001753",
+        "coord": [
+            -8.80404,
+            42.40071
+        ]
+    },
+    {
+        "nombre": "Praia Ponte do Bao",
+        "id": "1001681",
+        "coord": [
+            -8.86295,
+            42.44899
+        ]
+    },
+    {
+        "nombre": "Praia do Adro",
+        "id": "1002043",
+        "coord": [
+            -8.75573,
+            42.22502
+        ]
+    },
+    {
+        "nombre": "Praia do Carril",
+        "id": "1002046",
+        "coord": [
+            -8.76327,
+            42.2235
+        ]
+    },
+    {
+        "nombre": "Praia do Cocho",
+        "id": "1002049",
+        "coord": [
+            -8.7693,
+            42.22442
+        ]
+    },
+    {
+        "nombre": "Praia do Cocho das Dornas",
+        "id": "1002052",
+        "coord": [
+            -8.77659,
+            42.22019
+        ]
+    },
+    {
+        "nombre": "Praia do Tombo do Gato",
+        "id": "1002054",
+        "coord": [
+            -8.77477,
+            42.22254
+        ]
+    },
+    {
+        "nombre": "Praia Breadouro",
+        "id": "1002062",
+        "coord": [
+            -8.78706,
+            42.19986
+        ]
+    },
+    {
+        "nombre": "Praia Canido",
+        "id": "1002064",
+        "coord": [
+            -8.79764,
+            42.19397
+        ]
+    },
+    {
+        "nombre": "Praia do Xunqueiro",
+        "id": "1002065",
+        "coord": [
+            -8.80403,
+            42.19158
+        ]
+    },
+    {
+        "nombre": "Praia dos Muiños",
+        "id": "1002072",
+        "coord": [
+            -8.81427,
+            42.17461
+        ]
+    },
+    {
+        "nombre": "Praia dos Viños",
+        "id": "1002106",
+        "coord": [
+            -8.90251,
+            42.21612
+        ]
+    },
+    {
+        "nombre": "Area Grande do Muxieiro",
+        "id": "1002110",
+        "coord": [
+            -8.89658,
+            42.2272
+        ]
+    },
+    {
+        "nombre": "Praia do Vao",
+        "id": "1000259",
+        "coord": [
+            -8.7926,
+            42.19844
+        ]
+    },
+    {
+        "nombre": "Praia do Portiño",
+        "id": "1000275",
+        "coord": [
+            -8.8165,
+            42.16787
+        ]
+    },
+    {
+        "nombre": "Praia do Matadero",
+        "id": "1002411",
+        "coord": [
+            -8.76936,
+            42.22418
+        ]
+    },
+    {
+        "nombre": "Praia do Bornal",
+        "id": "1001608",
+        "coord": [
+            -8.8278,
+            42.57602
+        ]
+    },
+    {
+        "nombre": "Praia Fuciño do Porco",
+        "id": "1001609",
+        "coord": [
+            -8.83006,
+            42.57396
+        ]
+    },
+    {
+        "nombre": "Praia do Terrón",
+        "id": "1001611",
+        "coord": [
+            -8.83496,
+            42.55706
+        ]
+    },
+    {
+        "nombre": "Praia do Castelete",
+        "id": "1001632",
+        "coord": [
+            -8.82941,
+            42.54398
+        ]
+    }
+]
