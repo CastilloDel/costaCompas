@@ -1,0 +1,6 @@
+import fetch from "axios"
+
+
+const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWxjYXN0aWxsb2RlbGFyb3NhZGFuaWVsQGdtYWlsLmNvbSIsImp0aSI6IjIwOTIyMThmLWVjMWYtNDljYS1hNzgzLTI1Y2M5M2I5MDM5MSIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNjc3MjMzOTYwLCJ1c2VySWQiOiIyMDkyMjE4Zi1lYzFmLTQ5Y2EtYTc4My0yNWNjOTNiOTAzOTEiLCJyb2xlIjoiIn0.BfBsUXzS-EYK-YMYvIfH-5yJ88eT7LBwgelBHlU2Cyg"
+let result = fetch("https://opendata.aemet.es/opendata/api/observacion/convencional/todas/?api_key=")
+console.log(result);
