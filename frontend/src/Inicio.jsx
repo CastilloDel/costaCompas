@@ -49,40 +49,37 @@ export const Inicio = () => {
         <Form>
           <Row className="align-items-center justify-content-center pb-4">
             <Col sm={3}>
-              <Form.Group className="pb-4">
-                <Form.Label>Que día queres ir?</Form.Label>
-                <div>
-                  <ButtonGroup>
-                    {Object.entries(posiblesDias).map(([diaElegido, codigoDia]) => (
-                      <ToggleButton
-                        key={codigoDia}
-                        disabled={codigoDia === 0 && horaActual === 23}
-                        id={`dia-${codigoDia}`}
-                        type="radio"
-                        variant='outline-primary'
-                        checked={codigoDia === dia}
-                        onChange={() => {
-                          setDia(codigoDia);
-                          if (codigoDia == 0) {
-                            setHora(horaActual + 1);
-                          }
-                        }}
-                      >
-                        {diaElegido}
-                      </ToggleButton>
-                    ))}
-                  </ButtonGroup>
-                </div>
-              </Form.Group>
+              <Form.Label>Que día queres ir?</Form.Label>
+              <div>
+                <ButtonGroup>
+                  {Object.entries(posiblesDias).map(([diaElegido, codigoDia]) => (
+                    <ToggleButton
+                      key={codigoDia}
+                      disabled={codigoDia === 0 && horaActual === 23}
+                      id={`dia-${codigoDia}`}
+                      type="radio"
+                      variant='outline-primary'
+                      checked={codigoDia === dia}
+                      onChange={() => {
+                        setDia(codigoDia);
+                        if (codigoDia == 0) {
+                          setHora(horaActual + 1);
+                        }
+                      }}
+                    >
+                      {diaElegido}
+                    </ToggleButton>
+                  ))}
+                </ButtonGroup>
+              </div>
 
 
               <Form.Group className="pb-4">
                 <Form.Label>A que hora vas chegar?</Form.Label>
-                <Form.Select
-                >
+                <Form.Select >
                   {[...Array(24).keys()].slice(dia === 0 ? horaActual + 1 : 0).map((posibleHora) => {
                     return (
-                      <option onClick={() => {
+                      <option key={posibleHora} onClick={() => {
                         setHora(dia === 0 ? posibleHora - horaActual - 1 : posibleHora);
                       }}>
                         {("0" + posibleHora).slice(-2) + ":00"}
