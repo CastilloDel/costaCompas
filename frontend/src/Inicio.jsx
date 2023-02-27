@@ -19,7 +19,7 @@ export const Inicio = () => {
   const fechaActual = new Date();
   const horaActual = fechaActual.getHours();
   const [hora, setHora] = useState(0);
-  const [dia, setDia] = useState(0);
+  const [dia, setDia] = useState(horaActual === 23 ? 1 : 0);
   const [latitud, setLatitud] = useState(undefined);
   const [longitud, setLongitud] = useState(undefined);
   const [indiceActividad, setIndiceActividad] = useState(0);
@@ -56,6 +56,7 @@ export const Inicio = () => {
                     {Object.entries(posiblesDias).map(([diaElegido, codigoDia]) => (
                       <ToggleButton
                         key={codigoDia}
+                        disabled={codigoDia === 0 && horaActual === 23}
                         id={`dia-${codigoDia}`}
                         type="radio"
                         variant='outline-primary'
@@ -95,8 +96,6 @@ export const Inicio = () => {
                 <div>
                   <BootstrapSwitchButton
                     checked={usarGPS}
-                    onlabel=''
-                    offlabel=''
                     onChange={(checked) => {
                       if (checked) {
                         navigator.geolocation.getCurrentPosition((position) => {
@@ -151,6 +150,7 @@ export const Inicio = () => {
                 ).map((actividad) => {
                   return (<Card
                     className={"card col-3 me-1 ms-1 " + (actividadEscogida == actividad ? " border-primary border border-2 " : "")}
+                    key={actividad}
                     onClick={() => {
                       setActividadEscogida(actividad);
                     }}>
