@@ -11,7 +11,18 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const actividades = ["Voleibol", "Kite Surf", "Tomar o sol", "Natación", "Correr"];
-const imagenesActividades = { "Kite Surf": "assets/kite.svg", "Voleibol": "assets/pelota.svg", "Tomar o sol": "assets/sun.svg", "Natación": "assets/swimming.svg", "Correr": "assets/running.svg" };
+const imagenesActividades = {
+  "Kite Surf": "assets/kite.svg",
+  "Voleibol": "assets/pelota.svg",
+  "Tomar o sol": "assets/sun.svg",
+  "Natación": "assets/swimming.svg",
+  "Correr": "assets/running.svg"
+};
+const posiblesDias = {
+  'Hoxe': 0,
+  'Mañá': 1,
+  'Pasado mañá': 2,
+};
 
 export const Inicio = () => {
   const navigate = useNavigate();
@@ -26,17 +37,6 @@ export const Inicio = () => {
   const [usarGPS, setUsarGPS] = useState(false);
   const [localizacionError, setLocalizacionError] = useState(false);
 
-
-  const posiblesDias = {
-    'Hoxe': 0,
-    'Mañá': 1,
-    'Pasado mañá': 2,
-  };
-
-  const containerStyle = {
-    width: '100 %',
-    height: '250px'
-  };
   const defaultCenter = {
     lat: 43.3322352,
     lng: -8.4106015,
@@ -115,7 +115,7 @@ export const Inicio = () => {
                     googleMapsApiKey="AIzaSyAeYV8pC59kSdsBLiaUWQPJlvmvf2wWmd8"
                   >
                     <GoogleMap
-                      mapContainerStyle={containerStyle}
+                      mapContainerStyle={{ width: '100 %', height: '250px' }}
                       zoom={8}
                       center={(latitud === undefined || longitud === undefined) ? defaultCenter : { lat: latitud, lng: longitud }}
                       onClick={(event) => {
