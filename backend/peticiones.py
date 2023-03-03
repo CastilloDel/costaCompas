@@ -28,7 +28,7 @@ def obtenerPlayasMasCercanas(lat, lon, n=20):
 
     return [playa[0] for playa in sorted(playasConDistancia, key=lambda x: x[1])[:n]]
 
-def consultarPlaya(id, tiempoCacheSegundos=3600):
+def consultarPlaya(id, tiempoCacheSegundos=3600*24):
     # Cache de una hora
     if id in CACHE and datetime.now().timestamp() - CACHE[id]['momento_peticion'] < tiempoCacheSegundos:
         return CACHE[id]['datos']
