@@ -11,7 +11,7 @@ with open('./secrets.json', 'r') as f2:
     secrets = json.load(f2)
 
 METEO_URL = "http://servizos.meteogalicia.es/apiv3_APPs/getNumericForecastInfo?"
-VARIABLES = "temperature,wind,cloud_area_fraction,significative_wave_height"
+VARIABLES = "temperature,wind,cloud_area_fraction"
 
 # En la cache habrá objetos de la forma:
 # id: {momento_peticion: timestamp, datos: ...}
@@ -29,7 +29,6 @@ def obtenerPlayasMasCercanas(lat, lon, n=20):
     return [playa[0] for playa in sorted(playasConDistancia, key=lambda x: x[1])[:n]]
 
 def consultarPlaya(id, tiempoCacheSegundos=3600*24):
-    # Cache de una hora
     if id in CACHE and datetime.now().timestamp() - CACHE[id]['momento_peticion'] < tiempoCacheSegundos:
         return CACHE[id]['datos']
     else:
@@ -56,7 +55,6 @@ def conseguirPlaya(playa, dia, hora, playasConDatos):
         'temperatura': properties['days'][dia]['variables'][0]['values'][hora]['value'],
         'viento': properties['days'][dia]['variables'][1]['values'][hora]['moduleValue'],
         'coberturaNubes': properties['days'][dia]['variables'][2]['values'][hora]['value'],
-        'alturaOlas': properties['days'][dia]['variables'][3]['values'][hora]['value'],
         'lon': playa['coord'][0],
         'lat': playa['coord'][1]
     }
