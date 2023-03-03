@@ -1,6 +1,5 @@
 import json 
 import requests
-import googlemaps
 from datetime import datetime
 import geopy.distance
 from threading import Thread
@@ -29,9 +28,9 @@ def obtenerPlayasMasCercanas(lat, lon, n=20):
 
     return [playa[0] for playa in sorted(playasConDistancia, key=lambda x: x[1])[:n]]
 
-def consultarPlaya(id):
+def consultarPlaya(id, tiempoCacheSegundos=3600):
     # Cache de una hora
-    if id in CACHE and datetime.now().timestamp() - CACHE[id]['momento_peticion'] < 3600:
+    if id in CACHE and datetime.now().timestamp() - CACHE[id]['momento_peticion'] < tiempoCacheSegundos:
         return CACHE[id]['datos']
     else:
         consulta = generarConsulta(id)
@@ -52,8 +51,6 @@ def consultarPlaya(id):
 def conseguirPlaya(playa, dia, hora, playasConDatos):
     response = consultarPlaya(playa['id'])
     properties = response['features'][0]['properties']
-
-    print(playa, dia, hora)
 
     playasConDatos[properties['name']] = {
         'temperatura': properties['days'][dia]['variables'][0]['values'][hora]['value'],
@@ -79,9 +76,3 @@ def conseguirPlayas(lat, lon, dia, hora):
 def generarConsulta(id):
     key = secrets['API_KEY_METEO']
     return f"{METEO_URL}locationIds={id}&variables={VARIABLES}&API_KEY={key}"
-
-
-def distanciaEntreDosPuntos(lat1, lon1, lat2, lon2):
-    gmaps = googlemaps.Client(key=secrets['API_KEY_MAPS'])
-    return gmaps.distance_matrix((lat1, lon1), (lat2, lon2))['rows'][0]['elements'][0]['distance']['value']
-
