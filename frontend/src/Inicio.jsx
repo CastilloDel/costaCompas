@@ -10,7 +10,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useMapEvent } from 'react-leaflet/hooks';
-import 'leaflet/dist/leaflet.css'
+import 'leaflet/dist/leaflet.css';
 
 const actividades = ["Voleibol", "Kite Surf", "Tomar o sol", "Natación", "Correr"];
 const imagenesActividades = {
@@ -33,7 +33,8 @@ export const Inicio = () => {
   const horaActual = fechaActual.getHours();
   const [hora, setHora] = useState(0);
   const [dia, setDia] = useState(horaActual === 23 ? 1 : 0);
-  const [position, setPosition] = useState(undefined);
+  const [latitud, setLatitud] = useState(undefined);
+  const [longitud, setLongitud] = useState(undefined);
   const [indiceActividad, setIndiceActividad] = useState(0);
   const [usarGPS, setUsarGPS] = useState(false);
   const [localizacionError, setLocalizacionError] = useState(false);
@@ -55,13 +56,14 @@ export const Inicio = () => {
 
   function LocationMarker() {
     const map = useMapEvent('click', (e) => {
-      setPosition(e.latlng);
+      setLatitud(e.latlng.lat);
+      setLongitud(e.latlng.lng);
       setLocalizacionError(false);
       setUsarGPS(false);
     })
 
-    return position === undefined ? undefined : (
-      <Marker position={position}>
+    return (latitud === undefined || longitud === undefined) ? undefined : (
+      <Marker position={{lat: latitud, lng: longitud}}>
         <Popup>Punto de partida</Popup>
       </Marker>
     )
@@ -121,13 +123,14 @@ export const Inicio = () => {
                     onChange={(checked) => {
                       if (checked) {
                         navigator.geolocation.getCurrentPosition((location) => {
-                          console.log(location.coords)
-                          setPosition({lat: location.coords.latitude, lng: location.coords.longitude});
+                          setLatitud(location.coords.latitude);
+                          setLongitud(location.coords.longitude);
                           setLocalizacionError(false);
                         });
                         setUsarGPS(true);
                       } else {
-                        setPosition(undefined);
+                        setLatitud(undefined);
+                        setLongitud(undefined);
                         setUsarGPS(false);
                       }
                     }}
@@ -189,9 +192,9 @@ export const Inicio = () => {
               <Row className="justify-content-center align-items-center">
                 <Col className="d-flex align-items-center justify-content-center">
                   <Button variant="primary" size="lg" onClick={() => {
-                    if (position !== undefined) {
+                    if (latitud !== undefined && longitud !== undefined) {
                       navigate("/resultados", {
-                        state: { actividad: actividadEscogida, hora: hora, dia: dia, latitud: position.lat, longitud: position.lng }
+                        state: { actividad: actividadEscogida, hora: hora, dia: dia, latitud: latitud, longitud: longitud }
                       })
                     } else {
                       setLocalizacionError(true);

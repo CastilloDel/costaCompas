@@ -1,7 +1,6 @@
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
-import Tab from 'react-bootstrap/Tab';
 import Button from 'react-bootstrap/Button';
 import { useLocation } from 'react-router';
 import { listaPlayasPorPreferencia } from './js/calculos';
@@ -9,7 +8,8 @@ import { useEffect, useState } from 'react';
 import { URL_BACKEND } from "../package.json";
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { useJsApiLoader, GoogleMap, Marker, DirectionsRenderer, LoadScript } from "@react-google-maps/api";
+import { MapContainer, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 export const Resultados = () => {
   const location = useLocation();
@@ -22,8 +22,6 @@ export const Resultados = () => {
   const [playaActiva, setPlayaActiva] = useState(0);
   const [tiempo, setTiempo] = useState();
   const [distancia, setDistancia] = useState();
-
-  const [directionsResponse, setDirectionsResponse] = useState(null)
 
   useEffect(() => {
     const getBackendData = async () => {
@@ -68,19 +66,14 @@ export const Resultados = () => {
   const destino = { lat: playas[rankingPlayas[playaActiva].nombre].lat, lng: playas[rankingPlayas[playaActiva].nombre].lon }
   const orixe = { lat: latitud, lng: longitud }
 
-  async function calculateRoute() {
-    const directionsService = new google.maps.DirectionsService()
-    const results = await directionsService.route({
-      origin: orixe,
-      destination: destino,
-      travelMode: google.maps.TravelMode.DRIVING,
-    })
-    setDirectionsResponse(results);
-    setDistancia(results.routes[0].legs[0].distance.text);
-    setTiempo(results.routes[0].legs[0].duration.text);
+  const containerStyle = {
+    width: '100 %',
+    height: '350px'
+  };
+  const defaultCenter = {
+    lat: 43.3322352,
+    lng: -8.4106015,
   }
-
-  calculateRoute();
 
   return (
     <div class="d-flex flex-column">
@@ -113,7 +106,7 @@ export const Resultados = () => {
         </Col>
 
         <Col sm={6} className="ms-5">
-          < Row className="p-2 border border-info border-2 rounded">
+          < Row className="p-2 border border-secondary shadow border-2 rounded">
             <Col sm={5}>
               <h4 className="text-center"><u>{rankingPlayas[playaActiva].nombre}</u></h4>
               <p>{"Vento: " + playas[rankingPlayas[playaActiva].nombre].viento + " Km/h"}</p>
@@ -123,26 +116,18 @@ export const Resultados = () => {
               <p>{"Tempo estimado de traxecto: " + tiempo}</p>
             </Col>
             <Col>
-              <div className="px-0 py-1 d-flex h-100">
-                <GoogleMap
-                  mapContainerStyle={{
-                    width: '100%',
-                    height: '350px'
-                  }}
-                  zoom={8}
-                  center={destino}
-                  options={{
-                    zoomControl: true,
-                    streetViewControl: false,
-                    mapTypeControl: true,
-                    fullscreenControl: true,
-                  }}
-                >
-
-                  {directionsResponse && (
-                    <DirectionsRenderer directions={directionsResponse} />
-                  )}
-                </GoogleMap>
+              <div className="px-0 py-1 w-100 h-100">
+              <MapContainer
+                    center={destino}
+                    zoom={10}
+                    scrollWheelZoom={false}
+                    style={containerStyle}
+                  >
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                  </MapContainer>
 
               </div>
             </Col>
