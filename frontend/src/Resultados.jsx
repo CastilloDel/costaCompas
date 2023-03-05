@@ -8,8 +8,14 @@ import { useEffect, useState } from 'react';
 import { URL_BACKEND } from "../package.json";
 import ClipLoader from 'react-spinners/ClipLoader';
 
+import L from "leaflet";
+import { createControlComponent } from "@react-leaflet/core";
 import { MapContainer, TileLayer } from 'react-leaflet';
+
+import 'leaflet-routing-machine';
+
 import 'leaflet/dist/leaflet.css';
+import 'leaflet-routing-machine/dist/leaflet-routing-machine.css'
 
 export const Resultados = () => {
   const location = useLocation();
@@ -38,7 +44,7 @@ export const Resultados = () => {
     return (
       <div class="my-4">
         <Row className="px-5 justify-content-center">
-          <Col sm={4}>
+          <Col lg={4}>
             <h3 class="text-center">Sentímolo moito, tivo lugar un erro cargando a páxina. </h3>
           </Col>
         </Row>
@@ -69,26 +75,47 @@ export const Resultados = () => {
   const containerStyle = {
     width: '100 %',
     height: '350px'
+  };  
+
+  const createRouting = (props) => {
+    const instance = L.Routing.control({
+      waypoints: [
+        L.latLng(props.ori.lat, props.ori.lng),
+        L.latLng(props.dest.lat, props.dest.lng)
+      ],
+  
+      show: false, /* Para que non se mostren as indicacions nada mais cargar o mapa*/
+      addWaypoints: false,
+      draggableWaypoints: false,
+      fitSelectedRoutes: false,
+      showAlternatives: false
+    });
+    
+    /* Cando se atope a ruta actualizamos a distancia e o tempo*/
+    instance.on('routesfound', function(routeResult) {
+      setDistancia(Math.round(routeResult.routes[0].summary.totalDistance/1000));
+      setTiempo(Math.round(routeResult.routes[0].summary.totalTime/60));
+    })
+  
+    return instance;
   };
-  const defaultCenter = {
-    lat: 43.3322352,
-    lng: -8.4106015,
-  }
+
+  const Routing = createControlComponent(createRouting);
 
   return (
     <div class="d-flex flex-column">
       <Row className="mx-4 mt-4 mb-2">
-        <Col sm={1}>
+        <Col lg={1}>
           <Button variant="outline-secondary" href="/" >Volver</Button>{' '}
         </Col>
       </Row>
       <Row className="mb-4">
-        <Col sm={12}>
+        <Col lg={12}>
           <h2 class="text-center">Aquí tes as mellores praias para <strong>{actividad}</strong></h2>
         </Col>
       </Row>
-      <Row className="px-5 justify-content-center pt-4">
-        <Col sm={3} className="me-5">
+      <Row className="px-5 justify-content-center pt-4 gy-5 gx-5">
+        <Col lg={3}>
           <h4 class="text-center">Ranking de praias</h4>
           <ListGroup as="ol" numbered>
             {rankingPlayas.slice(0, 5).map((playa, index) => {
@@ -105,28 +132,31 @@ export const Resultados = () => {
           </ListGroup>
         </Col>
 
-        <Col sm={6} className="ms-5">
+        <Col lg={6}>
           < Row className="p-2 border border-secondary shadow border-2 rounded">
-            <Col sm={5}>
+            <Col md={5}>
               <h4 className="text-center"><u>{rankingPlayas[playaActiva].nombre}</u></h4>
               <p>{"Vento: " + playas[rankingPlayas[playaActiva].nombre].viento + " Km/h"}</p>
               <p>{"Temperatura: " + playas[rankingPlayas[playaActiva].nombre].temperatura + " ºC"}</p>
               <p>{"Cobertura de nubes: " + playas[rankingPlayas[playaActiva].nombre].coberturaNubes + " %"}</p>
-              <p>{"Distancia en coche: " + distancia}</p>
-              <p>{"Tempo estimado de traxecto: " + tiempo}</p>
+              <p>{"Distancia en coche: " + distancia + " km"}</p>
+              <p>{"Tempo estimado de traxecto: " + tiempo + " min"}</p>
             </Col>
-            <Col>
+            <Col md={7}>
               <div className="px-0 py-1 w-100 h-100">
               <MapContainer
-                    center={destino}
-                    zoom={10}
+                    /* Punto medio da ruta */
+                    center={{lat: (orixe.lat + destino.lat)/2, lng: (orixe.lng + destino.lng)/2}}
+                    zoom={9}
                     scrollWheelZoom={false}
                     style={containerStyle}
                   >
+                    
                     <TileLayer
                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+                    <Routing ori={orixe} dest={destino} />
                   </MapContainer>
 
               </div>

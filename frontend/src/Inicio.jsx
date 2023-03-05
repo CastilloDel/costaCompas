@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { useMapEvent } from 'react-leaflet/hooks';
 import 'leaflet/dist/leaflet.css';
 
@@ -38,6 +38,11 @@ export const Inicio = () => {
   const [indiceActividad, setIndiceActividad] = useState(0);
   const [usarGPS, setUsarGPS] = useState(false);
   const [localizacionError, setLocalizacionError] = useState(false);
+  const [localizationErrorCode, setLocalizationErrorCode] = useState(undefined);
+  const [buscandoLoc, setBuscandoLoc] = useState(false);
+
+  /* Almacena o mapa de openmaps para depois poder usar un evento dende o swich button */
+  let mapa = null;
 
   const posiblesDias = {
     'Hoxe': 0,
@@ -55,6 +60,7 @@ export const Inicio = () => {
   }
 
   function LocationMarker() {
+    /* Hook providing the Leaflet Map instance in any descendant of a MapContainer */
     const map = useMapEvent('click', (e) => {
       setLatitud(e.latlng.lat);
       setLongitud(e.latlng.lng);
@@ -69,13 +75,36 @@ export const Inicio = () => {
     )
   }
 
+  function LocationFound() {
+    const map = useMapEvents({
+      locationfound(location) {
+        setBuscandoLoc(false);
+        setLatitud(location.latlng.lat);
+        setLongitud(location.latlng.lng);
+        setLocalizacionError(false);
+        map.flyTo(location.latlng, map.getZoom())
+      }, 
+      
+      locationerror(error) {
+        setBuscandoLoc(false);
+        setLocalizationErrorCode(error.code);
+        console.log("Codigo de erro " + error.code + ": " + error.message);
+      }
+    })
+
+    /* Deste xeito podemos acceder aos metodos de map dende un componhente de fora de MapContainer */
+    mapa = map;
+
+    return null
+  }
+
   return (
     <div>
       <div className="py-4 px-5 justify-content-center align-items-center">
         <h1 className="text-center pb-3">Imos á praia?</h1>
         <Form>
           <Row className="align-items-center justify-content-center pb-4">
-            <Col sm={3}>
+            <Col lg={3} className="mb-4">
               <Form.Label>Que día queres ir?</Form.Label>
               <div>
                 <ButtonGroup>
@@ -117,24 +146,32 @@ export const Inicio = () => {
 
               <Form.Group>
                 <Form.Label >Usar a túa ubicación actual</Form.Label>
-                <div>
-                  <BootstrapSwitchButton
-                    checked={usarGPS}
-                    onChange={(checked) => {
-                      if (checked) {
-                        navigator.geolocation.getCurrentPosition((location) => {
-                          setLatitud(location.coords.latitude);
-                          setLongitud(location.coords.longitude);
-                          setLocalizacionError(false);
-                        });
-                        setUsarGPS(true);
-                      } else {
-                        setLatitud(undefined);
-                        setLongitud(undefined);
-                        setUsarGPS(false);
-                      }
-                    }}
-                  />
+                <div className="container px-0 mx-0">
+                  <Row className="d-flex">
+                    <Col className="flex-grow-0">
+                      <BootstrapSwitchButton
+                        checked={usarGPS}
+                        onChange={(checked) => {
+                          if (checked) {
+                            /* Se en 10 segundos non se obten a localizacion salta un erro */
+                            mapa.locate({timeout:10000});
+                            setUsarGPS(true);
+                            setBuscandoLoc(true);
+                          } else {
+                            setLatitud(undefined);
+                            setLongitud(undefined);
+                            setUsarGPS(false);
+                          }
+                        }}
+                      />
+                    </Col>
+                    <Col className="d-flex align-items-center flex-grow-1 ps-1">
+                      {buscandoLoc ? (<p className="text-secondary my-0">Buscando...</p>) : null}
+                    </Col>
+                  </Row>
+                  <Row className="justify-content-start align-items-center pt-2">
+                    {localizationErrorCode !== 3 ? null : (<p className="text-danger">Non se puido ober a túa localizacion</p>)}
+                  </Row>
                 </div>
                 <Form.Label className="mb-1 mt-4">Alternativamente, podes seleccionar un punto de partida</Form.Label>
                 <div class="bg-primary">
@@ -151,6 +188,7 @@ export const Inicio = () => {
                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+                    <LocationFound />
                     <LocationMarker />
                   </MapContainer>
                 </div>
@@ -158,7 +196,7 @@ export const Inicio = () => {
 
             </Col>
 
-            <Col sm={7}>
+            <Col lg={7}>
               <Row className="mb-5 justify-content-center align-items-top">
                 <img style={{ cursor: "pointer" }} className="col-1" src="assets/leftArrow.svg" onClick={() => {
                   setIndiceActividad(indiceActividad === 0 ? actividades.length - 1 : indiceActividad - 1);
