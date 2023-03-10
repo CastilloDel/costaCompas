@@ -148,7 +148,7 @@ export const Resultados = () => {
                     /* Punto medio da ruta */
                     center={{lat: (orixe.lat + destino.lat)/2, lng: (orixe.lng + destino.lng)/2}}
                     zoom={9}
-                    scrollWheelZoom={false}
+                    scrollWheelZoom={true}
                     style={containerStyle}
                   >
                     

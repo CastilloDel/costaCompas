@@ -178,7 +178,7 @@ export const Inicio = () => {
                   <MapContainer
                     center={defaultCenter}
                     zoom={10}
-                    scrollWheelZoom={false}
+                    scrollWheelZoom={true}
                     style={containerStyle}
                     onClick={(e) => {
                       setPosition(e.latlng)
