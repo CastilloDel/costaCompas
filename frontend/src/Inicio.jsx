@@ -66,6 +66,7 @@ export const Inicio = () => {
       setLongitud(e.latlng.lng);
       setLocalizacionError(false);
       setUsarGPS(false);
+      setLocalizationErrorCode(undefined);
     })
 
     return (latitud === undefined || longitud === undefined) ? undefined : (
@@ -161,6 +162,7 @@ export const Inicio = () => {
                             setLatitud(undefined);
                             setLongitud(undefined);
                             setUsarGPS(false);
+                            setLocalizationErrorCode(undefined);
                           }
                         }}
                       />
@@ -170,10 +172,10 @@ export const Inicio = () => {
                     </Col>
                   </Row>
                   <Row className="justify-content-start align-items-center pt-2">
-                    {localizationErrorCode !== 3 ? null : (<p className="text-danger">Non se puido ober a túa localizacion</p>)}
+                  <p className={localizationErrorCode !== 3 ? "text-white" : "text-danger"}>Non se puido ober a túa localizacion</p>
                   </Row>
                 </div>
-                <Form.Label className="mb-1 mt-4">Alternativamente, podes seleccionar un punto de partida</Form.Label>
+                <Form.Label className="mb-1">Alternativamente, podes seleccionar un punto de partida</Form.Label>
                 <div class="bg-primary">
                   <MapContainer
                     center={defaultCenter}
