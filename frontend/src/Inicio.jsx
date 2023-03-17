@@ -1,29 +1,41 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import { useNavigate } from 'react-router';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import { useMapEvent } from 'react-leaflet/hooks';
-import 'leaflet/dist/leaflet.css';
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import { useNavigate } from "react-router";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
+import BootstrapSwitchButton from "bootstrap-switch-button-react";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvents,
+} from "react-leaflet";
+import { useMapEvent } from "react-leaflet/hooks";
+import "leaflet/dist/leaflet.css";
 
-const actividades = ["Voleibol", "Kite Surf", "Tomar o sol", "Natación", "Correr"];
+const actividades = [
+  "Voleibol",
+  "Kite Surf",
+  "Tomar o sol",
+  "Natación",
+  "Correr",
+];
 const imagenesActividades = {
   "Kite Surf": "assets/kite.svg",
-  "Voleibol": "assets/pelota.svg",
+  Voleibol: "assets/pelota.svg",
   "Tomar o sol": "assets/sun.svg",
-  "Natación": "assets/swimming.svg",
-  "Correr": "assets/running.svg"
+  Natación: "assets/swimming.svg",
+  Correr: "assets/running.svg",
 };
 const posiblesDias = {
-  'Hoxe': 0,
-  'Mañá': 1,
-  'Pasado mañá': 2,
+  Hoxe: 0,
+  Mañá: 1,
+  "Pasado mañá": 2,
 };
 
 export const Inicio = () => {
@@ -45,35 +57,35 @@ export const Inicio = () => {
   let mapa = null;
 
   const posiblesDias = {
-    'Hoxe': 0,
-    'Mañá': 1,
-    'Pasado mañá': 2,
+    Hoxe: 0,
+    Mañá: 1,
+    "Pasado mañá": 2,
   };
 
   const containerStyle = {
-    width: '100 %',
-    height: '250px'
+    width: "100 %",
+    height: "250px",
   };
   const defaultCenter = {
     lat: 43.3322352,
     lng: -8.4106015,
-  }
+  };
 
   function LocationMarker() {
     /* Hook providing the Leaflet Map instance in any descendant of a MapContainer */
-    const map = useMapEvent('click', (e) => {
+    const map = useMapEvent("click", (e) => {
       setLatitud(e.latlng.lat);
       setLongitud(e.latlng.lng);
       setLocalizacionError(false);
       setUsarGPS(false);
       setLocalizationErrorCode(undefined);
-    })
+    });
 
-    return (latitud === undefined || longitud === undefined) ? undefined : (
-      <Marker position={{lat: latitud, lng: longitud}}>
+    return latitud === undefined || longitud === undefined ? undefined : (
+      <Marker position={{ lat: latitud, lng: longitud }}>
         <Popup>Punto de partida</Popup>
       </Marker>
-    )
+    );
   }
 
   function LocationFound() {
@@ -83,20 +95,20 @@ export const Inicio = () => {
         setLatitud(location.latlng.lat);
         setLongitud(location.latlng.lng);
         setLocalizacionError(false);
-        map.flyTo(location.latlng, map.getZoom())
-      }, 
-      
+        map.flyTo(location.latlng, map.getZoom());
+      },
+
       locationerror(error) {
         setBuscandoLoc(false);
         setLocalizationErrorCode(error.code);
         console.log("Codigo de erro " + error.code + ": " + error.message);
-      }
-    })
+      },
+    });
 
     /* Deste xeito podemos acceder aos metodos de map dende un componhente de fora de MapContainer */
     mapa = map;
 
-    return null
+    return null;
   }
 
   return (
@@ -109,44 +121,55 @@ export const Inicio = () => {
               <Form.Label>Que día queres ir?</Form.Label>
               <div>
                 <ButtonGroup>
-                  {Object.entries(posiblesDias).map(([diaElegido, codigoDia]) => (
-                    <ToggleButton
-                      key={codigoDia}
-                      disabled={codigoDia === 0 && horaActual === 23}
-                      id={`dia-${codigoDia}`}
-                      type="radio"
-                      variant='outline-primary'
-                      checked={codigoDia === dia}
-                      onChange={() => {
-                        setDia(codigoDia);
-                        if (codigoDia == 0) {
-                          setHora(horaActual + 1);
-                        }
-                      }}
-                    >
-                      {diaElegido}
-                    </ToggleButton>
-                  ))}
+                  {Object.entries(posiblesDias).map(
+                    ([diaElegido, codigoDia]) => (
+                      <ToggleButton
+                        key={codigoDia}
+                        disabled={codigoDia === 0 && horaActual === 23}
+                        id={`dia-${codigoDia}`}
+                        type="radio"
+                        variant="outline-primary"
+                        checked={codigoDia === dia}
+                        onChange={() => {
+                          setDia(codigoDia);
+                          if (codigoDia == 0) {
+                            setHora(horaActual + 1);
+                          }
+                        }}
+                      >
+                        {diaElegido}
+                      </ToggleButton>
+                    )
+                  )}
                 </ButtonGroup>
               </div>
 
-
               <Form.Group className="pb-4">
                 <Form.Label>A que hora vas chegar?</Form.Label>
-                <Form.Select >
-                  {[...Array(24).keys()].slice(dia === 0 ? horaActual + 1 : 0).map((posibleHora) => {
-                    return (
-                      <option key={posibleHora} onClick={() => {
-                        setHora(dia === 0 ? posibleHora - horaActual - 1 : posibleHora);
-                      }}>
-                        {("0" + posibleHora).slice(-2) + ":00"}
-                      </option>)
-                  })}
+                <Form.Select>
+                  {[...Array(24).keys()]
+                    .slice(dia === 0 ? horaActual + 1 : 0)
+                    .map((posibleHora) => {
+                      return (
+                        <option
+                          key={posibleHora}
+                          onClick={() => {
+                            setHora(
+                              dia === 0
+                                ? posibleHora - horaActual - 1
+                                : posibleHora
+                            );
+                          }}
+                        >
+                          {("0" + posibleHora).slice(-2) + ":00"}
+                        </option>
+                      );
+                    })}
                 </Form.Select>
               </Form.Group>
 
               <Form.Group>
-                <Form.Label >Usar a túa ubicación actual</Form.Label>
+                <Form.Label>Usar a túa ubicación actual</Form.Label>
                 <div className="container px-0 mx-0">
                   <Row className="d-flex">
                     <Col className="flex-grow-0">
@@ -155,7 +178,7 @@ export const Inicio = () => {
                         onChange={(checked) => {
                           if (checked) {
                             /* Se en 10 segundos non se obten a localizacion salta un erro */
-                            mapa.locate({timeout:10000});
+                            mapa.locate({ timeout: 10000 });
                             setUsarGPS(true);
                             setBuscandoLoc(true);
                           } else {
@@ -168,14 +191,26 @@ export const Inicio = () => {
                       />
                     </Col>
                     <Col className="d-flex align-items-center flex-grow-1 ps-1">
-                      {buscandoLoc ? (<p className="text-secondary my-0">Buscando...</p>) : null}
+                      {buscandoLoc ? (
+                        <p className="text-secondary my-0">Buscando...</p>
+                      ) : null}
                     </Col>
                   </Row>
                   <Row className="justify-content-start align-items-center pt-2">
-                  <p className={localizationErrorCode !== 3 ? "invisible" : "text-danger visible"}>Non se puido ober a túa localizacion</p>
+                    <p
+                      className={
+                        localizationErrorCode !== 3
+                          ? "invisible"
+                          : "text-danger visible"
+                      }
+                    >
+                      Non se puido ober a túa localizacion
+                    </p>
                   </Row>
                 </div>
-                <Form.Label className="mb-1">Alternativamente, podes seleccionar un punto de partida</Form.Label>
+                <Form.Label className="mb-1">
+                  Alternativamente, podes seleccionar un punto de partida
+                </Form.Label>
                 <div class="bg-primary">
                   <MapContainer
                     center={defaultCenter}
@@ -183,7 +218,7 @@ export const Inicio = () => {
                     scrollWheelZoom={true}
                     style={containerStyle}
                     onClick={(e) => {
-                      setPosition(e.latlng)
+                      setPosition(e.latlng);
                     }}
                   >
                     <TileLayer
@@ -195,68 +230,106 @@ export const Inicio = () => {
                   </MapContainer>
                 </div>
               </Form.Group>
-
             </Col>
 
             <Col lg={7}>
               <Row className="mb-5 justify-content-center align-items-top">
-                <img style={{ cursor: "pointer" }} className="col-1" src="assets/leftArrow.svg" onClick={() => {
-                  setIndiceActividad(indiceActividad === 0 ? actividades.length - 1 : indiceActividad - 1);
-                }} />
-                {[...Array(3).keys()].map((indice) => {
-                  return actividades[(indice + indiceActividad) % actividades.length]
-                }
-                ).map((actividad) => {
-                  return (<Card
-                    className={"card col-3 me-1 ms-1 " + (actividadEscogida == actividad ? " border-primary border border-2 " : "")}
-                    key={actividad}
-                    onClick={() => {
-                      setActividadEscogida(actividad);
-                    }}>
-                    <Card.Img variant="top" src={imagenesActividades[actividad]} />
-                    <Card.Body>
-                      <Card.Title className="text-center">{actividad}</Card.Title>
-                    </Card.Body>
-                  </Card>)
-                })}
-                <img style={{ cursor: "pointer" }} className="col-1" src="assets/rightArrow.svg" onClick={() => {
-                  setIndiceActividad(indiceActividad + 1);
-                }} />
-
+                <img
+                  style={{ cursor: "pointer" }}
+                  className="col-1"
+                  src="assets/leftArrow.svg"
+                  onClick={() => {
+                    setIndiceActividad(
+                      indiceActividad === 0
+                        ? actividades.length - 1
+                        : indiceActividad - 1
+                    );
+                  }}
+                />
+                {[...Array(3).keys()]
+                  .map((indice) => {
+                    return actividades[
+                      (indice + indiceActividad) % actividades.length
+                    ];
+                  })
+                  .map((actividad) => {
+                    return (
+                      <Card
+                        className={
+                          "card col-3 me-1 ms-1 " +
+                          (actividadEscogida == actividad
+                            ? " border-primary border border-2 "
+                            : "")
+                        }
+                        key={actividad}
+                        onClick={() => {
+                          setActividadEscogida(actividad);
+                        }}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={imagenesActividades[actividad]}
+                        />
+                        <Card.Body>
+                          <Card.Title className="text-center">
+                            {actividad}
+                          </Card.Title>
+                        </Card.Body>
+                      </Card>
+                    );
+                  })}
+                <img
+                  style={{ cursor: "pointer" }}
+                  className="col-1"
+                  src="assets/rightArrow.svg"
+                  onClick={() => {
+                    setIndiceActividad(indiceActividad + 1);
+                  }}
+                />
               </Row>
 
               <Row className="justify-content-center pb-2">
-                <h4 className="text-center">Así que {actividadEscogida}, non? </h4>
+                <h4 className="text-center">
+                  Así que {actividadEscogida}, non?{" "}
+                </h4>
               </Row>
 
               <Row className="justify-content-center align-items-center">
                 <Col className="d-flex align-items-center justify-content-center">
-                  <Button variant="primary" size="lg" onClick={() => {
-                    if (latitud !== undefined && longitud !== undefined) {
-                      navigate("/resultados", {
-                        state: { actividad: actividadEscogida, hora: hora, dia: dia, latitud: latitud, longitud: longitud }
-                      })
-                    } else {
-                      setLocalizacionError(true);
-                    }
-                  }}>
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    onClick={() => {
+                      if (latitud !== undefined && longitud !== undefined) {
+                        navigate("/resultados", {
+                          state: {
+                            actividad: actividadEscogida,
+                            hora: hora,
+                            dia: dia,
+                            latitud: latitud,
+                            longitud: longitud,
+                          },
+                        });
+                      } else {
+                        setLocalizacionError(true);
+                      }
+                    }}
+                  >
                     Buscar
                   </Button>
-
                 </Col>
-              </Row >
-              <Row className="justify-content-center align-items-center text-danger">
-                {localizacionError && (<h6 className="text-center mt-4">Tes que poñer a túa localización primeiro!</h6>)}
               </Row>
-
+              <Row className="justify-content-center align-items-center text-danger">
+                {localizacionError && (
+                  <h6 className="text-center mt-4">
+                    Tes que poñer a túa localización primeiro!
+                  </h6>
+                )}
+              </Row>
             </Col>
-
           </Row>
-
         </Form>
-
-      </div >
-    </div >
-  )
-}
-
+      </div>
+    </div>
+  );
+};

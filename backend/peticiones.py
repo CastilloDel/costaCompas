@@ -10,7 +10,7 @@ with open('./playasAmpliado.json', 'r') as f1:
 with open('./secrets.json', 'r') as f2:
     secrets = json.load(f2)
 
-METEO_URL = "http://servizos.meteogalicia.es/apiv3_APPs/getNumericForecastInfo?"
+METEO_URL = "https://servizos.meteogalicia.gal/apiv4/getNumericForecastInfo?"
 VARIABLES = "temperature,wind,cloud_area_fraction"
 
 # En la cache habrá objetos de la forma:
