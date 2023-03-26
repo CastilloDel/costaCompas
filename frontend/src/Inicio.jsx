@@ -19,6 +19,13 @@ import {
 } from "react-leaflet";
 import { useMapEvent } from "react-leaflet/hooks";
 import "leaflet/dist/leaflet.css";
+import kiteSVG from "../assets/kite.svg";
+import pelotaSvg from "../assets/pelota.svg";
+import sunSVG from "../assets/sun.svg";
+import swimmingSVG from "../assets/swimming.svg";
+import runningSVG from "../assets/running.svg";
+import leftArrow from "../assets/leftArrow.svg";
+import rightArrow from "../assets/rightArrow.svg";
 
 const actividades = [
   "Voleibol",
@@ -28,11 +35,11 @@ const actividades = [
   "Correr",
 ];
 const imagenesActividades = {
-  "Kite Surf": "assets/kite.svg",
-  Voleibol: "assets/pelota.svg",
-  "Tomar o sol": "assets/sun.svg",
-  Natación: "assets/swimming.svg",
-  Correr: "assets/running.svg",
+  "Kite Surf": kiteSVG,
+  Voleibol: pelotaSvg,
+  "Tomar o sol": sunSVG,
+  Natación: swimmingSVG,
+  Correr: runningSVG,
 };
 const posiblesDias = {
   Hoxe: 0,
@@ -57,12 +64,6 @@ export const Inicio = () => {
 
   /* Almacena o mapa de openmaps para depois poder usar un evento dende o swich button */
   let mapa = null;
-
-  const posiblesDias = {
-    Hoxe: 0,
-    Mañá: 1,
-    "Pasado mañá": 2,
-  };
 
   const containerStyle = {
     width: "100 %",
@@ -239,7 +240,7 @@ export const Inicio = () => {
                 <img
                   style={{ cursor: "pointer" }}
                   className="col-1"
-                  src="assets/leftArrow.svg"
+                  src={leftArrow}
                   onClick={() => {
                     setIndiceActividad(
                       indiceActividad === 0
@@ -283,7 +284,7 @@ export const Inicio = () => {
                 <img
                   style={{ cursor: "pointer" }}
                   className="col-1"
-                  src="assets/rightArrow.svg"
+                  src={rightArrow}
                   onClick={() => {
                     setIndiceActividad(indiceActividad + 1);
                   }}
