@@ -7,7 +7,9 @@ import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
-import BootstrapSwitchButton from "bootstrap-switch-button-react";
+import B from "bootstrap-switch-button-react";
+// See https://github.com/vitejs/vite/issues/2139 for more information on this
+const BootstrapSwitchButton = B.default || B;
 import {
   MapContainer,
   TileLayer,
