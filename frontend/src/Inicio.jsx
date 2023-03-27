@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -62,6 +62,12 @@ export const Inicio = () => {
   const [localizationErrorCode, setLocalizationErrorCode] = useState(undefined);
   const [buscandoLoc, setBuscandoLoc] = useState(false);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => {
+    setWindowWidth(window.innerWidth);
+  });
+
   /* Almacena o mapa de openmaps para depois poder usar un evento dende o swich button */
   let mapa = null;
 
@@ -120,7 +126,7 @@ export const Inicio = () => {
         <h1 className="text-center pb-3">Imos á praia?</h1>
         <Form>
           <Row className="align-items-center justify-content-center pb-4">
-            <Col lg={3} className="mb-4">
+            <Col xl={3} className="mb-4">
               <Form.Label>Que día queres ir?</Form.Label>
               <div>
                 <ButtonGroup>
@@ -235,11 +241,11 @@ export const Inicio = () => {
               </Form.Group>
             </Col>
 
-            <Col lg={7}>
+            <Col xl={7}>
               <Row className="mb-5 justify-content-center align-items-top">
                 <img
                   style={{ cursor: "pointer" }}
-                  className="col-1"
+                  className="col-md-1 col-2"
                   src={leftArrow}
                   onClick={() => {
                     setIndiceActividad(
@@ -249,7 +255,7 @@ export const Inicio = () => {
                     );
                   }}
                 />
-                {[...Array(3).keys()]
+                {[...Array(windowWidth >= 768 ? 3 : 1).keys()]
                   .map((indice) => {
                     return actividades[
                       (indice + indiceActividad) % actividades.length
@@ -259,7 +265,7 @@ export const Inicio = () => {
                     return (
                       <Card
                         className={
-                          "card col-3 me-1 ms-1 " +
+                          "card col-md-3 col-sm-5 col-6 me-1 ms-1 " +
                           (actividadEscogida == actividad
                             ? " border-primary border border-2 "
                             : "")
@@ -283,7 +289,7 @@ export const Inicio = () => {
                   })}
                 <img
                   style={{ cursor: "pointer" }}
-                  className="col-1"
+                  className="col-md-1 col-2"
                   src={rightArrow}
                   onClick={() => {
                     setIndiceActividad(indiceActividad + 1);
