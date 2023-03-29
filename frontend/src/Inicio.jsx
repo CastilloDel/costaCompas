@@ -16,6 +16,7 @@ import {
   Marker,
   Popup,
   useMapEvents,
+  useMap,
 } from "react-leaflet";
 import { useMapEvent } from "react-leaflet/hooks";
 import "leaflet/dist/leaflet.css";
@@ -113,6 +114,16 @@ export const Inicio = () => {
         console.log("Codigo de erro " + error.code + ": " + error.message);
       },
     });
+
+    return null;
+  }
+
+  function AttributionControl() {
+    const map = useMap();
+
+    map.attributionControl.setPrefix(
+      '<a href="https://leafletjs.com/" title="A JavaScript library for interactive maps">Leaflet</a>'
+    );
 
     /* Deste xeito podemos acceder aos metodos de map dende un componhente de fora de MapContainer */
     mapa = map;
@@ -230,6 +241,7 @@ export const Inicio = () => {
                       setPosition(e.latlng);
                     }}
                   >
+                    <AttributionControl />
                     <TileLayer
                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

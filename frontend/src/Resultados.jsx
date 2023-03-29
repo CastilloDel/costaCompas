@@ -10,7 +10,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 import L from "leaflet";
 import { createControlComponent } from "@react-leaflet/core";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
 
 import "leaflet-routing-machine";
 
@@ -110,16 +110,26 @@ export const Resultados = () => {
 
   const Routing = createControlComponent(createRouting);
 
+  function AttributionControl() {
+    const map = useMap();
+
+    map.attributionControl.setPrefix(
+      '<a href="https://leafletjs.com/" title="A JavaScript library for interactive maps">Leaflet</a>'
+    );
+
+    return null;
+  }
+
   return (
     <div class="d-flex flex-column">
-      <Row className="mx-4 mt-4 mb-2">
+      <Row className="mx-4 mt-4 mb-2 d-sm-block d-none">
         <Col lg={1}>
           <Button variant="outline-secondary" href="/">
             Volver
           </Button>{" "}
         </Col>
       </Row>
-      <Row className="mb-4">
+      <Row className="mb-4 mt-sm-0 mt-5">
         <Col lg={12}>
           <h2 class="text-center">
             Aquí tes as mellores praias para <strong>{actividad}</strong>
@@ -186,6 +196,7 @@ export const Resultados = () => {
                   scrollWheelZoom={true}
                   style={containerStyle}
                 >
+                  <AttributionControl />
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
