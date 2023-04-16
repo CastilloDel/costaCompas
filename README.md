@@ -44,7 +44,7 @@ python -m venv myvenv
 pip install -r requirements.txt
 ```
 
-Once the venv is created, you can modify `Activate.ps1` to run flask automatically, adding the following lines:
+Once the venv is created, you can add the following lines to `Activate.ps1` to run the backend automatically when the virtual environment is activated:
 
 ```
 $env:FLASK_APP = "app.py"
