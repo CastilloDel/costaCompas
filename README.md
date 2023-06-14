@@ -57,7 +57,7 @@ To run the frontend, you can use npm:
 
 ```
 npm install
-nom run dev
+npm run dev
 ```
 
 ## Team :two_men_holding_hands:
