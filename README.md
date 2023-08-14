@@ -60,6 +60,16 @@ npm install
 npm run dev
 ```
 
+<u>Note</u>: You have to change `URL_BACKEND` in file `package.json` to `http://localhost:5000`. Otherwise, the frontend will connect to the backend deployed on `https://costacompas-backend.onrender.com`.
+
+### Docker Compose
+
+Alternatively, you can use Docker Compose to run the backend and the frontend in two containers. First of all, you may change `URL_BACKEND` in file `package.json` to `http://backend:5000`. Then, you have to run:
+
+```
+docker compose up -d
+```
+
 ## Team :two_men_holding_hands:
 
 - [Sergio Álvarez Perez](https://github.com/sergio-alv-per)
