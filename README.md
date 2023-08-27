@@ -26,49 +26,60 @@ The file `secrets.json` must be like this:
 
 #### Linux
 
-To run the backend on Linux:
+To run the backend on Linux it could be helpfull use virtual environments:
 
 ```
+python -m venv myvenv
+source myvenv/bin/activate
 pip install -r requirements.txt
+
 export FLASK_APP="app.py"
 flask run
 ```
 
+Also, you can add last two commands at the end of myvenv/bin/activate to run flask automatically when venv is activated.
+
 #### Windows Powershell and venv
 
-To run the backend on Windows it could be helpfull use virtual environments:
+To run the backend on Windows using virtual environments:
 
 ```
 python -m venv myvenv
-./myvenv/Scripts/Activate
+./myvenv/Scripts/Activate.ps1
 pip install -r requirements.txt
 ```
 
-Once the venv is created, you can add the following lines to `Activate.ps1` to run the backend automatically when the virtual environment is activated:
+Once the venv is created, you can modify `Activate.ps1` to run flask automatically adding the following lines, or directly run them in terminal:
 
 ```
 $env:FLASK_APP = "app.py"
 flask --debug run
 ```
 
+Once the backend is deployed, you can see it on `localhost:5000`.
+
 ### Frontend
 
-To run the frontend, you can use npm:
+To run the frontend, you should use Node.js (version 16.x) and npm:
 
 ```
 npm install
 npm run dev
 ```
 
+Then, the frontend will be running on `localhost:5137`.
+
 <u>Note</u>: You have to change `URL_BACKEND` in file `package.json` to `http://localhost:5000`. Otherwise, the frontend will connect to the backend deployed on `https://costacompas-backend.onrender.com`.
 
 ### Docker Compose
 
-Alternatively, you can use Docker Compose to run the backend and the frontend in two containers. First of all, you may change `URL_BACKEND` in file `package.json` to `http://backend:5000`. Then, you have to run:
+Alternatively, you can use Docker Compose to run the backend and the frontend in two Docker containers. First of all, you may change `URL_BACKEND` in file `package.json` to `http://backend:5000`. Then, you have to run:
 
 ```
 docker compose up -d
 ```
+
+When the containers are running, the frontend will be running inside one of the containers on port `5137`, and the backend on the other container on port `5000`. Those ports are redirected to same ports on the host machine, so you will be able to see the frontend on `localhost:5137`, and the backend on `localhost:5000`.
 
 ## Team :two_men_holding_hands:
 
