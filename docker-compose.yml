@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    tty: true
+    ports:
+      - "5000:5000"
+  frontend:
+    build: ./frontend
+    tty: true
+    ports:
+      - "5173:5173"
